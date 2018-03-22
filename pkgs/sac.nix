@@ -4,7 +4,10 @@ stdenv.mkDerivation rec {
   name = "sac-core-${version}";
   version = "9.1";
 
-  src = /home/anton/tmp/sac/sac.deb;
+  src = fetchurl {
+    url = "http://share.kaliwe.ru/SafenetAuthenticationClient-9.1.7-0_amd64.deb";
+    sha256 = "55523666636a163fc6f53f9456d94ecc3c29c5fa92481c6cbc1743c5b452bd53";
+  };
   sourceRoot = ".";
   unpackCmd = ''
     ar p "$src" data.tar.gz | tar xz
